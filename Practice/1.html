@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>Form</title>
+        <style>
+            body{
+            
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: white
+            }
+            .signin-container {
+            width: 300px;
+            padding: 20px;
+            background: #2ef;
+            border-radius: 8px;
+            box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1);
+        }
+        </style>
+    </head>
+    <body>
+        <Form>
+            <div class="signin-container">
+                <label>Name:</label><br>
+                <input type="name" name="name" placeholder="Name" required><br>
+                    <label>Phone number:</label><br>
+                    <input type="Phone number" name="phone number" placeholder="number" required><br>
+                    <label>Address:</label><br>
+                    <input type="text" name="Address" placeholder="Address" required><br>
+                    <div>
+                        <label>Gender</label><br>
+                        <form>
+                                <input type="radio" name="gender" value="male">
+                                Male
+                                <input type="radio" name="gender" value="female">
+                                Female
+                                <input type="radio" name="gender" value="other">
+                                Other                        
+                    </div>
+                  <center><button type="Submit">Submit</button></center> 
+                
+            </div>
+        </Form>
+    </body>
+</html>

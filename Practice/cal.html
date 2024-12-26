@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2d2d2d;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .calculator {
+            background-color: #1b1b1b;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .display {
+            background-color: black;
+            color: white;
+            text-align: right;
+            font-size: 2em;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 80px);
+            grid-gap: 10px;
+        }
+
+        .buttons button {
+            background-color: #333;
+            border: none;
+            color: white;
+            font-size: 1.5em;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 5px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.2s, box-shadow 0.2s;
+        }
+
+        .buttons button:hover {
+            background-color: #444;
+            box-shadow: 0px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .buttons button:active {
+            box-shadow: 0px 0px rgba(0, 0, 0, 0.2);
+        }
+
+        .buttons .equal {
+            background-color: #007bff;
+        }
+
+        .buttons .equal:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="calculator">
+    <div class="display" id="display">0</div>
+    <div class="buttons">
+        <button onclick="clearEntry()">CE</button>
+        <button onclick="clearDisplay()">C</button>
+        <button onclick="deleteLast()">⌫</button>
+        <button onclick="input('%')">%</button>
+        <button onclick="input('1/')">1/x</button>
+        <button onclick="input('**2')">x²</button>
+        <button onclick="input('sqrt')">²√x</button>
+        <button onclick="input('/')">÷</button>
+        <button onclick="input('7')">7</button>
+        <button onclick="input('8')">8</button>
+        <button onclick="input('9')">9</button>
+        <button onclick="input('*')">×</button>
+        <button onclick="input('4')">4</button>
+        <button onclick="input('5')">5</button>
+        <button onclick="input('6')">6</button>
+        <button onclick="input('-')">-</button>
+        <button onclick="input('1')">1</button>
+        <button onclick="input('2')">2</button>
+        <button onclick="input('3')">3</button>
+        <button onclick="input('+')">+</button>
+        <button onclick="input('0')">0</button>
+        <button onclick="input('.')">,</button>
+        <button class="equal" onclick="calculate()">=</button>
+    </div>
+</div>
+
+<script>
+    let display = document.getElementById('display');
+    let currentValue = '0';
+
+    function input(value) {
+        if (value === 'sqrt') {
+            currentValue = Math.sqrt(parseFloat(currentValue)).toString();
+        } else {
+            if (currentValue === '0' || currentValue === 'Error') {
+                currentValue = value;
+            } else {
+                currentValue += value;
+            }
+        }
+        updateDisplay();
+    }
+
+    function calculate() {
+        try {
+            currentValue = eval(currentValue).toString();
+        } catch (e) {
+            currentValue = 'Error';
+        }
+        updateDisplay();
+    }
+
+    function clearDisplay() {
+        currentValue = '0';
+        updateDisplay();
+    }
+
+    function clearEntry() {
+        if (currentValue.length > 1) {
+            currentValue = currentValue.slice(0, -1);
+        } else {
+            currentValue = '0';
+        }
+        updateDisplay();
+    }
+
+    function deleteLast() {
+        if (currentValue.length > 1) {
+            currentValue = currentValue.slice(0, -1);
+        } else {
+            currentValue = '0';
+        }
+        updateDisplay();
+    }
+
+    function updateDisplay() {
+        display.innerText = currentValue;
+    }
+</script>
+
+</body>
+</html>
