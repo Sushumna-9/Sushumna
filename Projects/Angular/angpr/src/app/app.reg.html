@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: white;
+        }
+        .signin-container {
+            width: 300px;
+            padding: 20px;
+            background: rgb(186, 248, 141);
+            border-radius: 8px;
+            box-shadow: 0 6px 6px rgba(0, 0, 0, 0.1);
+        }
+        .signin-container label {
+            font-size: 14px;
+            margin-top: 10px;
+            display: block;
+        }
+        .signin-container input[type="text"],
+        .signin-container input[type="tel"] {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .signin-container button {
+            width: 100%;
+            padding: 10px;
+            background: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .signin-container button:hover {
+            background: #003d80;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <div class="signin-container">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Name" required>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Number" required>
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" placeholder="Address" required>
+
+            <fieldset>
+                <legend>Gender</legend>
+                <input type="radio" id="male" name="gender" value="male">Male
+                <input type="radio" id="female" name="gender" value="female">Female
+                <input type="radio" id="other" name="gender" value="other">Other
+
+            </fieldset>
+
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</body>
+</html>
